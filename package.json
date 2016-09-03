@@ -1,0 +1,34 @@
+{
+  "name": "react-native-easy-toast",
+  "version": "1.0.1",
+  "description": "A react native module to show toast like android, it works on iOS and Android.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crazycodeboy/react-native-easy-toast.git"
+  },
+  "keywords": [
+    "react-native",
+    "react-native-component",
+    "react-native-toast",
+    "toast",
+    "toast-ios",
+    "alert",
+    "react-component",
+    "navigator",
+    "ios",
+    "android"
+  ],
+  "author": "crazycodeboy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crazycodeboy/react-native-easy-toast/issues"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.20.0"
+  },
+  "homepage": "https://github.com/crazycodeboy/react-native-easy-toast#readme"
+}
