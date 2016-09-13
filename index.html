@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>React-native-easy-toast by crazycodeboy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">React-native-easy-toast</h1>
+      <h2 class="project-tagline">A react native module to show toast like android, it works on iOS and Android.</h2>
+      <a href="https://github.com/crazycodeboy/react-native-easy-toast" class="btn">View on GitHub</a>
+      <a href="https://github.com/crazycodeboy/react-native-easy-toast/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/crazycodeboy/react-native-easy-toast/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="react-native-easy-toast" class="anchor" href="#react-native-easy-toast" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>react-native-easy-toast</h1>
+
+<p>A react native module to show toast like android, it works on iOS and Android.</p>
+
+<h2>
+<a id="content" class="anchor" href="#content" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Content</h2>
+
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#api">API</a></li>
+<li><a href="#contribution">Contribution</a></li>
+</ul>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<ul>
+<li>1.Run <code>npm i react-native-easy-toast --save</code>
+</li>
+<li>2.<code>import Toast, {DURATION} from 'react-native-toast-easy'</code><br>
+</li>
+</ul>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+
+<ul>
+<li><a href="https://github.com/crazycodeboy/react-native-easy-toast/tree/master/examples">Examples</a></li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/crazycodeboy/react-native-easy-toast/master/examples/Screenshots/react-native-easy-toast-screenshots.gif" alt="Screenshots"></p>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting started</h2>
+
+<p>Add <code>react-native-toast-easy</code> to your js file.   </p>
+
+<p><code>import Toast, {DURATION} from 'react-native-toast-easy'</code>  </p>
+
+<p>Inside your component's render method, use Toast:   </p>
+
+<div class="highlight highlight-source-js"><pre> <span class="pl-en">render</span>() {
+         <span class="pl-k">return</span> (
+             <span class="pl-k">&lt;</span>View style<span class="pl-k">=</span>{<span class="pl-smi">styles</span>.<span class="pl-smi">container</span>}<span class="pl-k">&gt;</span>
+                 <span class="pl-k">...</span>
+                 <span class="pl-k">&lt;</span>Toast ref<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>toast<span class="pl-pds">"</span></span><span class="pl-k">/</span><span class="pl-k">&gt;</span>
+             <span class="pl-k">&lt;</span><span class="pl-k">/</span>View<span class="pl-k">&gt;</span>
+         );
+ }</pre></div>
+
+<blockquote>
+<p>Note:  Add it in the bottom of the root view.</p>
+</blockquote>
+
+<p>Then you can use it like this:   </p>
+
+<div class="highlight highlight-source-js"><pre> <span class="pl-v">this</span>.<span class="pl-smi">refs</span>.<span class="pl-smi">toast</span>.<span class="pl-en">show</span>(<span class="pl-s"><span class="pl-pds">'</span>hello world!<span class="pl-pds">'</span></span>);</pre></div>
+
+<p>That's it, you're ready to go!  </p>
+
+<h3>
+<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic usage</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">render</span>() {
+        <span class="pl-k">return</span> (
+            <span class="pl-k">&lt;</span>View style<span class="pl-k">=</span>{<span class="pl-smi">styles</span>.<span class="pl-smi">container</span>}<span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span>TouchableHighlight
+                    style<span class="pl-k">=</span>{{padding<span class="pl-k">:</span> <span class="pl-c1">10</span>}}
+                    onPress<span class="pl-k">=</span>{()<span class="pl-k">=&gt;</span>{
+                        <span class="pl-v">this</span>.<span class="pl-smi">refs</span>.<span class="pl-smi">toast</span>.<span class="pl-en">show</span>(<span class="pl-s"><span class="pl-pds">'</span>hello world!<span class="pl-pds">'</span></span>);
+                    }}<span class="pl-k">&gt;</span>
+                    <span class="pl-k">&lt;</span><span class="pl-c1">Text</span><span class="pl-k">&gt;</span>Press me<span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">Text</span><span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span><span class="pl-k">/</span>TouchableHighlight<span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span>Toast ref<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>toast<span class="pl-pds">"</span></span><span class="pl-k">/</span><span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span><span class="pl-k">/</span>View<span class="pl-k">&gt;</span>
+        );
+    }</pre></div>
+
+<h3>
+<a id="custom-toast" class="anchor" href="#custom-toast" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Custom Toast</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">render</span>() {
+        <span class="pl-k">return</span> (
+            <span class="pl-k">&lt;</span>View style<span class="pl-k">=</span>{<span class="pl-smi">styles</span>.<span class="pl-smi">container</span>}<span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span>TouchableHighlight
+                    style<span class="pl-k">=</span>{{padding<span class="pl-k">:</span> <span class="pl-c1">10</span>}}
+                    onPress<span class="pl-k">=</span>{()<span class="pl-k">=&gt;</span>{
+                        <span class="pl-v">this</span>.<span class="pl-smi">refs</span>.<span class="pl-smi">toast</span>.<span class="pl-en">show</span>(<span class="pl-s"><span class="pl-pds">'</span>hello world!<span class="pl-pds">'</span></span>,<span class="pl-c1">DURATION</span>.<span class="pl-c1">LENGTH_LONG</span>);
+                    }}<span class="pl-k">&gt;</span>
+                    <span class="pl-k">&lt;</span><span class="pl-c1">Text</span><span class="pl-k">&gt;</span>Press me<span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">Text</span><span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span><span class="pl-k">/</span>TouchableHighlight<span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span>Toast 
+                    ref<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>toast<span class="pl-pds">"</span></span> 
+                    style<span class="pl-k">=</span>{{backgroundColor<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>red<span class="pl-pds">'</span></span>}} 
+                    position<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>top<span class="pl-pds">'</span></span>
+                <span class="pl-k">/</span><span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span><span class="pl-k">/</span>View<span class="pl-k">&gt;</span>
+        );
+    }</pre></div>
+
+<p><strong>More Usage:</strong>    </p>
+
+<p><a href="https://github.com/crazycodeboy/GitHubPopular/blob/develop/js/page/SearchPage.js">GitHubPopular</a></p>
+
+<h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h2>
+
+<table>
+<thead>
+<tr>
+<th>Props</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>style</td>
+<td>View.propTypes.style</td>
+<td>true</td>
+<td>{backgroundColor: 'black',opacity: OPACITY,borderRadius: 5,padding: 10,}</td>
+<td>Custom style toast</td>
+</tr>
+<tr>
+<td>position</td>
+<td>PropTypes.oneOf(['top','center','bottom',])</td>
+<td>true</td>
+<td>'bottom'</td>
+<td>Custom toast position</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>show(text, duration)</td>
+<td>function</td>
+<td>false</td>
+<td>show a toast</td>
+</tr>
+<tr>
+<td>close()</td>
+<td>function</td>
+<td>true</td>
+<td>Close toast early</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="contribution" class="anchor" href="#contribution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contribution</h2>
+
+<p>Issues are welcome. Please add a screenshot of bug and code snippet. Quickest way to solve issue is to reproduce it on one of the examples.</p>
+
+<p>Pull requests are welcome. If you want to change API or making something big better to create issue and discuss it first.</p>
+
+<hr>
+
+<p><strong>MIT Licensed</strong></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/crazycodeboy/react-native-easy-toast">React-native-easy-toast</a> is maintained by <a href="https://github.com/crazycodeboy">crazycodeboy</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
