@@ -1,6 +1,7 @@
 # react-native-easy-toast
 A react native module to show toast like android, it works on iOS and Android.
 
+中文说明戳这里：[中文说明](https://github.com/crazycodeboy/react-native-easy-toast/blob/master/README.zh.md)
 
 ## Content
 
