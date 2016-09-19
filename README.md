@@ -111,7 +111,7 @@ position |  PropTypes.oneOf(['top','center','bottom',]) |true | 'bottom'  | Cust
 
 Method            | Type     | Optional | Description
 ----------------- | -------- | -------- | ----------- | -----------
-show(text, duration)   | function | false | show a toast 
+show(text, duration)   | function | false | show a toast,unit is millisecond
 close() |  function  | true  |  Close toast early    
 
 
