@@ -14,7 +14,7 @@ A react native module to show toast like android, it works on iOS and Android.
 ## Installation
 
 * 1.Run `npm i react-native-easy-toast --save`
-* 2.`import Toast, {DURATION} from 'react-native-toast-easy'`    
+* 2.`import Toast, {DURATION} from 'react-native-easy-toast'`    
 
 ## Demo  
 * [Examples](https://github.com/crazycodeboy/react-native-easy-toast/tree/master/examples)
@@ -23,9 +23,9 @@ A react native module to show toast like android, it works on iOS and Android.
 
 ## Getting started  
 
-Add `react-native-toast-easy` to your js file.   
+Add `react-native-easy-toast` to your js file.   
 
-`import Toast, {DURATION} from 'react-native-toast-easy'`  
+`import Toast, {DURATION} from 'react-native-easy-toast'`  
 
 Inside your component's render method, use Toast:   
 
@@ -83,9 +83,9 @@ render() {
                     }}>
                     <Text>Press me</Text>
                 </TouchableHighlight>
-                <Toast 
-                    ref="toast" 
-                    style={{backgroundColor:'red'}} 
+                <Toast
+                    ref="toast"
+                    style={{backgroundColor:'red'}}
                     position='top'
                 />
             </View>

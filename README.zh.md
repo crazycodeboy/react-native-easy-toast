@@ -12,7 +12,7 @@
 ## 安装
 
 * 1.在终端运行 `npm i react-native-easy-toast --save`
-* 2.在要使用`Toast`的js文件中添加`import Toast, {DURATION} from 'react-native-toast-easy'`    
+* 2.在要使用`Toast`的js文件中添加`import Toast, {DURATION} from 'react-native-easy-toast'`    
 
 ## Demo  
 * [Examples](https://github.com/crazycodeboy/react-native-easy-toast/tree/master/examples)
@@ -23,9 +23,9 @@
 
 >第一步：
 
-在你的js文件中导入 `react-native-toast-easy`：     
+在你的js文件中导入 `react-native-easy-toast`：     
 
-`import Toast, {DURATION} from 'react-native-toast-easy'`  
+`import Toast, {DURATION} from 'react-native-easy-toast'`  
 
 >第二步：   
 
@@ -45,7 +45,7 @@
 
 >注意: 请将`<Toast ref="toast"/>` 放在最外层View的底部.
 
->第三步： 
+>第三步：
 
 使用：  
 
@@ -53,8 +53,8 @@
  this.refs.toast.show('hello world!');
 ```
 
-在需要弹出提示框时使用上面代码即可。 
- 
+在需要弹出提示框时使用上面代码即可。
+
 
 
 ### 用例  
@@ -89,9 +89,9 @@ render() {
                     }}>
                     <Text>Press me</Text>
                 </TouchableHighlight>
-                <Toast 
-                    ref="toast" 
-                    style={{backgroundColor:'red'}} 
+                <Toast
+                    ref="toast"
+                    style={{backgroundColor:'red'}}
                     position='top'
                 />
             </View>
@@ -117,7 +117,7 @@ position |  PropTypes.oneOf(['top','center','bottom',]) |true | 'bottom'  | 自�
 
 方法            | 类型     | 可选 | 描述
 ----------------- | -------- | -------- | ----------- | -----------
-show(text, duration)   | function | false | 弹出提示框,单位是毫秒 
+show(text, duration)   | function | false | 弹出提示框,单位是毫秒
 close() |  function  | true  |  手动关闭提示框    
 
 
@@ -130,5 +130,3 @@ close() |  function  | true  |  手动关闭提示框
 
 **MIT Licensed**    
 大家可以自由复制和转载。  
-
-
