@@ -1,6 +1,15 @@
 # [react-native-easy-toast](https://github.com/crazycodeboy/react-native-easy-toast/)
 一款简单易用的 Toast 组件，支持 Android&iOS。
 
+[ ![release](https://img.shields.io/github/release/crazycodeboy/react-native-easy-toast.svg?maxAge=2592000?style=flat-square)](https://github.com/crazycodeboy/react-native-easy-toast/releases)
+[ ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](https://github.com/crazycodeboy/react-native-easy-toast/pulls)
+[ ![NPM version](http://img.shields.io/npm/v/react-native-easy-toast.svg?style=flat)](https://www.npmjs.com/package/react-native-easy-toast)
+[![License MIT](http://img.shields.io/badge/license-MIT-orange.svg?style=flat)](https://raw.githubusercontent.com/crazycodeboy/react-native-easy-toast/master/LICENSE)
+[ ![language English](https://img.shields.io/badge/language-English-yellow.svg)](https://github.com/crazycodeboy/react-native-easy-toast/)
+
+
+
+
 ## 目录
 
 - [安装](#安装)

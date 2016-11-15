@@ -1,7 +1,14 @@
 # react-native-easy-toast
 A react native module to show toast like android, it works on iOS and Android.
 
-中文说明戳这里：[中文说明](https://github.com/crazycodeboy/react-native-easy-toast/blob/master/README.zh.md)
+[ ![release](https://img.shields.io/github/release/crazycodeboy/react-native-easy-toast.svg?maxAge=2592000?style=flat-square)](https://github.com/crazycodeboy/react-native-easy-toast/releases)
+[ ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](https://github.com/crazycodeboy/react-native-easy-toast/pulls)
+[ ![NPM version](http://img.shields.io/npm/v/react-native-easy-toast.svg?style=flat)](https://www.npmjs.com/package/react-native-easy-toast)
+[![License MIT](http://img.shields.io/badge/license-MIT-orange.svg?style=flat)](https://raw.githubusercontent.com/crazycodeboy/react-native-easy-toast/master/LICENSE)
+[ ![语言 中文](https://img.shields.io/badge/语言-中文-yellow.svg)](https://github.com/crazycodeboy/react-native-easy-toast/blob/master/README.zh.md)
+
+
+
 
 ## Content
 
