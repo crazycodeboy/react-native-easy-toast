@@ -87,6 +87,7 @@ render() {
                     ref="toast"
                     style={{backgroundColor:'red'}}
                     position='top'
+                    textStyle={{color:'red'}}
                 />
             </View>
         );
@@ -106,13 +107,13 @@ Props              | Type     | Optional | Default     | Description
 ----------------- | -------- | -------- | ----------- | -----------
 style  | View.propTypes.style  | true | {backgroundColor: 'black',opacity: OPACITY,borderRadius: 5,padding: 10,}  |   Custom style toast
 position |  PropTypes.oneOf(['top','center','bottom',]) |true | 'bottom'  | Custom toast position
-
+textStyle  | View.propTypes.style  | true | {color:'white'}  |   Custom style text
 
 
 Method            | Type     | Optional | Description
 ----------------- | -------- | -------- | ----------- | -----------
 show(text, duration)   | function | false | show a toast,unit is millisecond
-close() |  function  | true  |  Close toast early    
+close(instantly) |  function  | true  |  pass true to close instantly, empty or false to start the close timer    
 
 
 ## Contribution
