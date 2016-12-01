@@ -30,21 +30,26 @@ export default class Toast extends Component {
     }
     show(text, duration) {
         this.duration = duration || DURATION.LENGTH_SHORT;
+
         this.setState({
             isShow: true,
             text: text,
         });
-        this.isShow = true;
-        this.state.opacityValue.setValue(OPACITY)
-        this.close();
+
+        Animated.timing(
+            this.state.opacityValue,
+            {
+                toValue: OPACITY,
+                duration: this.props.fadeInDuration,
+            }
+        ).start(() => {
+            this.isShow = true;
+            this.close();
+        });
     }
 
-    close(instant) {
-        var animationDuration = 500, closeDuration = this.duration;
-        if (instant == true) {
-            animationDuration = 0;
-            closeDuration = 0;
-        }
+    close() {
+        let delay = this.duration;
 
         if (!this.isShow) return;
         this.timer && clearTimeout(this.timer);
@@ -53,7 +58,7 @@ export default class Toast extends Component {
                 this.state.opacityValue,
                 {
                     toValue: 0.0,
-                    duration: animationDuration,
+                    duration: this.props.fadeOutDuration,
                 }
             ).start(() => {
                 this.setState({
@@ -61,7 +66,7 @@ export default class Toast extends Component {
                 });
                 this.isShow = false;
             });
-        }, closeDuration);
+        }, delay);
     }
 
     componentWillUnmount() {
@@ -69,21 +74,21 @@ export default class Toast extends Component {
     }
 
     render() {
-        let top;
+        let pos;
         switch (this.props.position) {
             case 'top':
-                top = 120;
+                pos = this.props.positionValue;
                 break;
             case 'center':
-                top = height / 2;
+                pos = height / 2;
                 break;
             case 'bottom':
-                top = height - 160;
+                pos = height - this.props.positionValue;
                 break;
         }
         let view = this.state.isShow ?
             <View
-                style={[styles.container, { top: top }]}
+                style={[styles.container, { top: pos }]}
                 pointerEvents="none"
                 >
                 <Animated.View
@@ -121,10 +126,16 @@ Toast.propTypes = {
         'center',
         'bottom',
     ]),
-    textStyle: Text.propTypes.style
+    textStyle: Text.propTypes.style,
+    positionValue: React.PropTypes.number,
+    showDuration: React.PropTypes.number,
+    visibleDuration: React.PropTypes.number
 }
 
 Toast.defaultProps = {
     position: 'bottom',
-    textStyle: styles.text
+    textStyle: styles.text,
+    positionValue: 120,
+    fadeInDuration: 500,
+    fadeOutDuration: 500
 }
