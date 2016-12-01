@@ -16,7 +16,6 @@ import {
 } from 'react-native'
 export const DURATION = { LENGTH_LONG: 2000, LENGTH_SHORT: 1000 };
 const {height, width} = Dimensions.get('window');
-const OPACITY = 0.6;
 
 export default class Toast extends Component {
 
@@ -25,7 +24,7 @@ export default class Toast extends Component {
         this.state = {
             isShow: false,
             text: '',
-            opacityValue: new Animated.Value(OPACITY),
+            opacityValue: new Animated.Value(this.props.opacity),
         }
     }
     show(text, duration) {
@@ -39,7 +38,7 @@ export default class Toast extends Component {
         Animated.timing(
             this.state.opacityValue,
             {
-                toValue: OPACITY,
+                toValue: this.props.opacity,
                 duration: this.props.fadeInDuration,
             }
         ).start(() => {
@@ -110,7 +109,6 @@ const styles = StyleSheet.create({
     },
     content: {
         backgroundColor: 'black',
-        opacity: OPACITY,
         borderRadius: 5,
         padding: 10,
     },
@@ -129,7 +127,8 @@ Toast.propTypes = {
     textStyle: Text.propTypes.style,
     positionValue: React.PropTypes.number,
     showDuration: React.PropTypes.number,
-    visibleDuration: React.PropTypes.number
+    visibleDuration: React.PropTypes.number,
+    opacity: React.PropTypes.number
 }
 
 Toast.defaultProps = {
@@ -137,5 +136,6 @@ Toast.defaultProps = {
     textStyle: styles.text,
     positionValue: 120,
     fadeInDuration: 500,
-    fadeOutDuration: 500
+    fadeOutDuration: 500,
+    opacity: 1
 }
