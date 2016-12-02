@@ -14,7 +14,7 @@ import {
     Dimensions,
     Text,
 } from 'react-native'
-export const DURATION = { LENGTH_LONG: 2000, LENGTH_SHORT: 1000 };
+export const DURATION = { LENGTH_LONG: 2000, LENGTH_SHORT: 500 };
 const {height, width} = Dimensions.get('window');
 
 export default class Toast extends Component {
@@ -49,7 +49,7 @@ export default class Toast extends Component {
 
     close() {
         let delay = this.duration;
-
+        
         if (!this.isShow) return;
         this.timer && clearTimeout(this.timer);
         this.timer = setTimeout(() => {
@@ -126,8 +126,8 @@ Toast.propTypes = {
     ]),
     textStyle: Text.propTypes.style,
     positionValue: React.PropTypes.number,
-    showDuration: React.PropTypes.number,
-    visibleDuration: React.PropTypes.number,
+    fadeInDuration: React.PropTypes.number,
+    fadeOutDuration: React.PropTypes.number,
     opacity: React.PropTypes.number
 }
 
