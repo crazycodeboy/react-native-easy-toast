@@ -102,11 +102,17 @@ render() {
                     ref="toast"
                     style={{backgroundColor:'red'}}
                     position='top'
+                    positionValue={200}
+                    fadeInDuration={750}
+                    fadeOutDuration={1000}
+                    opacity={0.8}
+                    textStyle={{color:'red'}}
                 />
             </View>
         );
     }
 ```
+
 
 **更多用例:**    
 
@@ -121,7 +127,11 @@ render() {
 ----------------- | -------- | -------- | ----------- | -----------
 style  | View.propTypes.style  | true | {backgroundColor: 'black',opacity: OPACITY,borderRadius: 5,padding: 10,}  |   自定义Toast的样式
 position |  PropTypes.oneOf(['top','center','bottom',]) |true | 'bottom'  | 自定义Toast的位置
-
+positionValue  | React.PropTypes.number  | true | 120  |   自定义Toast的位置
+fadeInDuration  | React.PropTypes.number  | true | 500  |   自定义 toast淡入时间
+fadeOutDuration  | React.PropTypes.number  | true | 500  |  自定义 toast淡出时间
+opacity  | React.PropTypes.number  | true | 1  |   自定义 toast 的透明度
+textStyle  | View.propTypes.style  | true | {color:'white'}  |  自定义text的样式
 
 
 方法            | 类型     | 可选 | 描述
