@@ -94,6 +94,10 @@ render() {
                     ref="toast"
                     style={{backgroundColor:'red'}}
                     position='top'
+                    positionValue={200}
+                    fadeInDuration={750}
+                    fadeOutDuration={1000}
+                    opacity={0.8}
                     textStyle={{color:'red'}}
                 />
             </View>
@@ -114,13 +118,17 @@ Props              | Type     | Optional | Default     | Description
 ----------------- | -------- | -------- | ----------- | -----------
 style  | View.propTypes.style  | true | {backgroundColor: 'black',opacity: OPACITY,borderRadius: 5,padding: 10,}  |   Custom style toast
 position |  PropTypes.oneOf(['top','center','bottom',]) |true | 'bottom'  | Custom toast position
+positionValue  | React.PropTypes.number  | true | 120  |   Custom toast position value
+fadeInDuration  | React.PropTypes.number  | true | 500  |   Custom toast show duration
+fadeOutDuration  | React.PropTypes.number  | true | 500  |   Custom toast close duration
+opacity  | React.PropTypes.number  | true | 1  |   Custom toast opacity
 textStyle  | View.propTypes.style  | true | {color:'white'}  |   Custom style text
 
 
 Method            | Type     | Optional | Description
 ----------------- | -------- | -------- | ----------- | -----------
 show(text, duration)   | function | false | show a toast,unit is millisecond
-close(instantly) |  function  | true  |  pass true to close instantly, empty or false to start the close timer    
+close() |  function  | -  |  start the close timer    
 
 
 ## Contribution
