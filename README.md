@@ -57,6 +57,26 @@ Then you can use it like this:
 
 That's it, you're ready to go!  
 
+Show a toast forever until you manually close it:
+```javascript
+ this.refs.toast.show('hello world!', DURATION.FOREVER);
+
+ // later on:
+ this.refs.toast.close('hello world!');
+```
+
+Optional you can pass a delay in seconds to the close()-method:
+```javascript
+ this.refs.toast.close('hello world!', 500);
+```
+
+Currently, the default delay for close() in FOREVER-mode is set to 250 ms (or this.props.defaultCloseDelay, which you can pass with)
+
+```jsx
+ <Toast ... defaultCloseDelay={100} />
+```
+
+
 
 ### Basic usage  
 

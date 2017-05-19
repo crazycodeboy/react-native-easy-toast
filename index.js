@@ -14,21 +14,29 @@ import {
     Dimensions,
     Text,
 } from 'react-native'
-export const DURATION = { LENGTH_LONG: 2000, LENGTH_SHORT: 500 };
+
+export const DURATION = { 
+    LENGTH_LONG: 2000, 
+    LENGTH_SHORT: 500,
+    FOREVER: 0,
+};
+
 const {height, width} = Dimensions.get('window');
 
 export default class Toast extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             isShow: false,
             text: '',
             opacityValue: new Animated.Value(this.props.opacity),
         }
     }
+
     show(text, duration) {
-        this.duration = duration || DURATION.LENGTH_SHORT;
+        this.duration = typeof duration === 'number' ? duration : DURATION.LENGTH_SHORT;
 
         this.setState({
             isShow: true,
@@ -43,14 +51,16 @@ export default class Toast extends Component {
             }
         ).start(() => {
             this.isShow = true;
-            this.close();
+            if(duration !== DURATION.FOREVER) this.close();
         });
     }
 
-    close() {
-        let delay = this.duration;
-        
-        if (!this.isShow) return;
+    close( duration ) {
+        let delay = typeof duration === 'undefined' ? this.duration : duration;
+
+        if(delay === DURATION.FOREVER) delay = this.props.defaultCloseDelay || 250;
+
+        if (!this.isShow && !this.state.isShow) return;
         this.timer && clearTimeout(this.timer);
         this.timer = setTimeout(() => {
             Animated.timing(
@@ -85,7 +95,8 @@ export default class Toast extends Component {
                 pos = height - this.props.positionValue;
                 break;
         }
-        let view = this.state.isShow ?
+        
+        const view = this.state.isShow ?
             <View
                 style={[styles.container, { top: pos }]}
                 pointerEvents="none"
