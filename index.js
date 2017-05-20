@@ -2,7 +2,7 @@
  * react-native-easy-toast
  * https://github.com/crazycodeboy/react-native-easy-toast
  * Email:crazycodeboy@gmail.com
- * Blog:http://jiapenghui.com
+ * Blog:http://www.devio.org/
  * @flow
  */
 
