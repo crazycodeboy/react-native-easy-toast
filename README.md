@@ -145,10 +145,11 @@ opacity  | React.PropTypes.number  | true | 1  |   Custom toast opacity
 textStyle  | View.propTypes.style  | true | {color:'white'}  |   Custom style text
 
 
-Method            | Type     | Optional | Description
------------------ | -------- | -------- | ----------- | -----------
+
+Method   |  Type     | Optional | Description
+----------------- | -------- | -------- | -----------
 show(text, duration)   | function | false | show a toast,unit is millisecond
-close() |  function  | -  |  start the close timer    
+close()  |   function  |  -   |   start the close timer    
 
 
 ## Contribution
