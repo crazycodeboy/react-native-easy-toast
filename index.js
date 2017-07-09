@@ -7,13 +7,17 @@
  */
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {
     StyleSheet,
     View,
     Animated,
     Dimensions,
     Text,
+    ViewPropTypes as RNViewPropTypes,
 } from 'react-native'
+
+const ViewPropTypes = RNViewPropTypes || View.propTypes;
 
 export const DURATION = { 
     LENGTH_LONG: 2000, 
@@ -129,17 +133,17 @@ const styles = StyleSheet.create({
 });
 
 Toast.propTypes = {
-    style: View.propTypes.style,
-    position: React.PropTypes.oneOf([
+    style: ViewPropTypes.style,
+    position: PropTypes.oneOf([
         'top',
         'center',
         'bottom',
     ]),
     textStyle: Text.propTypes.style,
-    positionValue: React.PropTypes.number,
-    fadeInDuration: React.PropTypes.number,
-    fadeOutDuration: React.PropTypes.number,
-    opacity: React.PropTypes.number
+    positionValue: PropTypes.number,
+    fadeInDuration: PropTypes.number,
+    fadeOutDuration: PropTypes.number,
+    opacity: PropTypes.number
 }
 
 Toast.defaultProps = {
