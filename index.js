@@ -14,7 +14,7 @@ import {
     Dimensions,
     Text,
 } from 'react-native'
-
+import PropTypes from 'prop-types';
 export const DURATION = { 
     LENGTH_LONG: 2000, 
     LENGTH_SHORT: 500,
@@ -22,8 +22,48 @@ export const DURATION = {
 };
 
 const {height, width} = Dimensions.get('window');
+const styles = StyleSheet.create({
+    container: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        alignItems: 'center',
+    },
+    content: {
+        backgroundColor: 'black',
+        borderRadius: 5,
+        padding: 10,
+    },
+    text: {
+        color: 'white'
+    }
+});
 
 export default class Toast extends Component {
+
+    static propTypes = {
+        style: PropTypes.style,
+        position: PropTypes.oneOf([
+            'top',
+            'center',
+            'bottom',
+        ]),
+        textStyle: PropTypes.style,
+        positionValue: PropTypes.number,
+        fadeInDuration: PropTypes.number,
+        fadeOutDuration: PropTypes.number,
+        opacity: PropTypes.number
+    };
+
+    static defaultProps = {
+        position: 'bottom',
+        textStyle: styles.text,
+        positionValue: 120,
+        fadeInDuration: 500,
+        fadeOutDuration: 500,
+        opacity: 1
+    };
+
 
     constructor(props) {
         super(props);
@@ -111,42 +151,3 @@ export default class Toast extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        alignItems: 'center',
-    },
-    content: {
-        backgroundColor: 'black',
-        borderRadius: 5,
-        padding: 10,
-    },
-    text: {
-        color: 'white'
-    }
-});
-
-Toast.propTypes = {
-    style: View.propTypes.style,
-    position: React.PropTypes.oneOf([
-        'top',
-        'center',
-        'bottom',
-    ]),
-    textStyle: Text.propTypes.style,
-    positionValue: React.PropTypes.number,
-    fadeInDuration: React.PropTypes.number,
-    fadeOutDuration: React.PropTypes.number,
-    opacity: React.PropTypes.number
-}
-
-Toast.defaultProps = {
-    position: 'bottom',
-    textStyle: styles.text,
-    positionValue: 120,
-    fadeInDuration: 500,
-    fadeOutDuration: 500,
-    opacity: 1
-}
