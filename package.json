@@ -27,6 +27,9 @@
   "bugs": {
     "url": "https://github.com/crazycodeboy/react-native-easy-toast/issues"
   },
+   "dependencies": {
+        "prop-types": "^15.5.10"
+  },
   "peerDependencies": {
     "react-native": ">=0.20.0"
   },
