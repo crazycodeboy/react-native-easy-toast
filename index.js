@@ -52,7 +52,7 @@ export default class Toast extends Component {
             }
         ).start(() => {
             this.isShow = true;
-            if(duration !== DURATION.FOREVER) this.close(callback);
+            if(duration !== DURATION.FOREVER) this.close();
         });
     }
 
