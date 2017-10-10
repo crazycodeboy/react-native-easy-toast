@@ -135,7 +135,7 @@ textStyle  | View.propTypes.style  | true | {color:'white'}  |  自定义text的
 
 
 方法            | 类型     | 可选 | 描述
------------------ | -------- | -------- | ----------- 
+----------------- | -------- | -------- | ----------- | -----------
 show(text, duration)   | function | false | 弹出提示框,单位是毫秒
 close() |  function  | true  |  手动关闭提示框    
 
