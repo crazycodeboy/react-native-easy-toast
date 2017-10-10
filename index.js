@@ -15,8 +15,6 @@ import {
     Text,
 } from 'react-native'
 
-import PropTypes from 'prop-types';
-
 export const DURATION = { 
     LENGTH_LONG: 2000, 
     LENGTH_SHORT: 500,
@@ -37,9 +35,10 @@ export default class Toast extends Component {
         }
     }
 
-    show(text, callback, duration = DURATION.LENGTH_SHORT, ) {
+    show(text, duration, callback) {
         
-        let delay = duration;
+        this.duration = typeof duration === 'number' ? duration : DURATION.LENGTH_SHORT;
+        this.callback = callback;
         this.setState({
             isShow: true,
             text: text,
@@ -57,9 +56,9 @@ export default class Toast extends Component {
         });
     }
 
-    close(callback, duration = DURATION.LENGTH_SHORT) {
+    close(duration) {
 
-        let delay = duration;
+        let delay = typeof duration === 'undefined' ? this.duration : duration;
         if(delay === DURATION.FOREVER) delay = this.props.defaultCloseDelay || 250;
 
         if (!this.isShow && !this.state.isShow) return;
@@ -72,13 +71,12 @@ export default class Toast extends Component {
                     duration: this.props.fadeOutDuration,
                 }
             ).start(() => {
-                
                 this.setState({
                     isShow: false,
                 });
                 this.isShow = false;
-                if(typeof callback === 'function') {
-                    callback();
+                if(typeof this.callback === 'function') {
+                    this.callback();
                 }
             });
         }, delay);
@@ -135,17 +133,17 @@ const styles = StyleSheet.create({
 });
 
 Toast.propTypes = {
-    style: PropTypes.object,
-    position: PropTypes.oneOf([
+    style: View.propTypes.style,
+    position: React.PropTypes.oneOf([
         'top',
         'center',
         'bottom',
     ]),
-    textStyle: PropTypes.object,
-    positionValue: PropTypes.number,
-    fadeInDuration: PropTypes.number,
-    fadeOutDuration: PropTypes.number,
-    opacity: PropTypes.number
+    textStyle: Text.propTypes.style,
+    positionValue: React.PropTypes.number,
+    fadeInDuration: React.PropTypes.number,
+    fadeOutDuration: React.PropTypes.number,
+    opacity: React.PropTypes.number
 }
 
 Toast.defaultProps = {

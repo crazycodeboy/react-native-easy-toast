@@ -57,6 +57,14 @@ Then you can use it like this:
 
 That's it, you're ready to go!  
 
+show a toast, and execute callback function when toast close it:
+
+```javascript
+    this.refs.toast.show('hello world!', 500, () => {
+        // something you want to do at close
+    });
+```
+
 Show a toast forever until you manually close it:
 ```javascript
  this.refs.toast.show('hello world!', DURATION.FOREVER);
@@ -65,10 +73,13 @@ Show a toast forever until you manually close it:
  this.refs.toast.close('hello world!');
 ```
 
+
+
 Optional you can pass a delay in seconds to the close()-method:
 ```javascript
  this.refs.toast.close('hello world!', 500);
 ```
+
 
 Currently, the default delay for close() in FOREVER-mode is set to 250 ms (or this.props.defaultCloseDelay, which you can pass with)
 
@@ -148,7 +159,7 @@ textStyle  | View.propTypes.style  | true | {color:'white'}  |   Custom style te
 
 Method   |  Type     | Optional | Description
 ----------------- | -------- | -------- | -----------
-show(text, duration)   | function | false | show a toast,unit is millisecond
+show(text, duration, callback)   | function | false | show a toast,unit is millisecond，and do callback
 close()  |   function  |  -   |   start the close timer    
 
 
