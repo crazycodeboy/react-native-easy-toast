@@ -37,9 +37,9 @@ export default class Toast extends Component {
         }
     }
 
-    show(text, duration) {
-        this.duration = typeof duration === 'number' ? duration : DURATION.LENGTH_SHORT;
-
+    show(text, duration = DURATION.LENGTH_SHORT, callback) {
+        
+        let delay = duration;
         this.setState({
             isShow: true,
             text: text,
@@ -53,13 +53,13 @@ export default class Toast extends Component {
             }
         ).start(() => {
             this.isShow = true;
-            if(duration !== DURATION.FOREVER) this.close();
+            if(duration !== DURATION.FOREVER) this.close(callback);
         });
     }
 
-    close( duration ) {
-        let delay = typeof duration === 'undefined' ? this.duration : duration;
+    close( duration = DURATION.LENGTH_SHORT, callback) {
 
+        let delay = duration;
         if(delay === DURATION.FOREVER) delay = this.props.defaultCloseDelay || 250;
 
         if (!this.isShow && !this.state.isShow) return;
@@ -72,10 +72,14 @@ export default class Toast extends Component {
                     duration: this.props.fadeOutDuration,
                 }
             ).start(() => {
+                
                 this.setState({
                     isShow: false,
                 });
                 this.isShow = false;
+                if(typeof callback === 'function') {
+                    callback();
+                }
             });
         }, delay);
     }
