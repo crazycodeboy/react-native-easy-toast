@@ -36,8 +36,8 @@ export default class Toast extends Component {
     }
 
     show(text, duration, callback) {
-        
         this.duration = typeof duration === 'number' ? duration : DURATION.LENGTH_SHORT;
+        
         this.callback = callback;
         this.setState({
             isShow: true,
@@ -56,9 +56,9 @@ export default class Toast extends Component {
         });
     }
 
-    close(duration) {
-
+    close( duration ) {
         let delay = typeof duration === 'undefined' ? this.duration : duration;
+
         if(delay === DURATION.FOREVER) delay = this.props.defaultCloseDelay || 250;
 
         if (!this.isShow && !this.state.isShow) return;
