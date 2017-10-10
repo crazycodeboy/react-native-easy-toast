@@ -73,13 +73,10 @@ Show a toast forever until you manually close it:
  this.refs.toast.close('hello world!');
 ```
 
-
-
 Optional you can pass a delay in seconds to the close()-method:
 ```javascript
  this.refs.toast.close('hello world!', 500);
 ```
-
 
 Currently, the default delay for close() in FOREVER-mode is set to 250 ms (or this.props.defaultCloseDelay, which you can pass with)
 
