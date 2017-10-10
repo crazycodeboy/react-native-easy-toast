@@ -37,7 +37,7 @@ export default class Toast extends Component {
         }
     }
 
-    show(text, duration = DURATION.LENGTH_SHORT, callback) {
+    show(text, callback, duration = DURATION.LENGTH_SHORT, ) {
         
         let delay = duration;
         this.setState({
@@ -57,7 +57,7 @@ export default class Toast extends Component {
         });
     }
 
-    close( duration = DURATION.LENGTH_SHORT, callback) {
+    close(callback, duration = DURATION.LENGTH_SHORT) {
 
         let delay = duration;
         if(delay === DURATION.FOREVER) delay = this.props.defaultCloseDelay || 250;
