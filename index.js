@@ -14,9 +14,9 @@ import {
     Dimensions,
     Text,
 } from 'react-native'
-
-export const DURATION = { 
-    LENGTH_LONG: 2000, 
+import {PropTypes} from 'prop-types';
+export const DURATION = {
+    LENGTH_LONG: 2000,
     LENGTH_SHORT: 500,
     FOREVER: 0,
 };
@@ -95,15 +95,15 @@ export default class Toast extends Component {
                 pos = height - this.props.positionValue;
                 break;
         }
-        
+
         const view = this.state.isShow ?
             <View
                 style={[styles.container, { top: pos }]}
                 pointerEvents="none"
-                >
+            >
                 <Animated.View
                     style={[styles.content, { opacity: this.state.opacityValue }, this.props.style]}
-                    >
+                >
                     <Text style={this.props.textStyle}>{this.state.text}</Text>
                 </Animated.View>
             </View> : null;
@@ -130,16 +130,16 @@ const styles = StyleSheet.create({
 
 Toast.propTypes = {
     style: View.propTypes.style,
-    position: React.PropTypes.oneOf([
+    position:PropTypes.oneOf([
         'top',
         'center',
         'bottom',
     ]),
     textStyle: Text.propTypes.style,
-    positionValue: React.PropTypes.number,
-    fadeInDuration: React.PropTypes.number,
-    fadeOutDuration: React.PropTypes.number,
-    opacity: React.PropTypes.number
+    positionValue:PropTypes.number,
+    fadeInDuration:PropTypes.number,
+    fadeOutDuration:PropTypes.number,
+    opacity:PropTypes.number
 }
 
 Toast.defaultProps = {
