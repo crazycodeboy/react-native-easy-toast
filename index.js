@@ -2,7 +2,7 @@
  * react-native-easy-toast
  * https://github.com/crazycodeboy/react-native-easy-toast
  * Email:crazycodeboy@gmail.com
- * Blog:http://www.devio.org/
+ * Blog:http://jiapenghui.com
  * @flow
  */
 
@@ -18,9 +18,9 @@ import {
 } from 'react-native'
 
 const ViewPropTypes = RNViewPropTypes || View.propTypes;
-
-export const DURATION = { 
-    LENGTH_LONG: 2000, 
+import {PropTypes} from 'prop-types';
+export const DURATION = {
+    LENGTH_LONG: 2000,
     LENGTH_SHORT: 500,
     FOREVER: 0,
 };
@@ -99,15 +99,15 @@ export default class Toast extends Component {
                 pos = height - this.props.positionValue;
                 break;
         }
-        
+
         const view = this.state.isShow ?
             <View
                 style={[styles.container, { top: pos }]}
                 pointerEvents="none"
-                >
+            >
                 <Animated.View
                     style={[styles.content, { opacity: this.state.opacityValue }, this.props.style]}
-                    >
+                >
                     <Text style={this.props.textStyle}>{this.state.text}</Text>
                 </Animated.View>
             </View> : null;
@@ -140,10 +140,10 @@ Toast.propTypes = {
         'bottom',
     ]),
     textStyle: Text.propTypes.style,
-    positionValue: PropTypes.number,
-    fadeInDuration: PropTypes.number,
-    fadeOutDuration: PropTypes.number,
-    opacity: PropTypes.number
+    positionValue:PropTypes.number,
+    fadeInDuration:PropTypes.number,
+    fadeOutDuration:PropTypes.number,
+    opacity:PropTypes.number
 }
 
 Toast.defaultProps = {
