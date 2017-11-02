@@ -18,7 +18,7 @@ import {
 } from 'react-native'
 
 const ViewPropTypes = RNViewPropTypes || View.propTypes;
-import {PropTypes} from 'prop-types';
+
 export const DURATION = {
     LENGTH_LONG: 2000,
     LENGTH_SHORT: 500,
