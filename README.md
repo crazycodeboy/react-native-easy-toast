@@ -60,6 +60,12 @@ That's it, you're ready to go!
 Show a toast forever until you manually close it:
 ```javascript
  this.refs.toast.show('hello world!', DURATION.FOREVER);
+```
+
+Or pass an element:
+```javascript
+    this.refs.toast.show(<View><Text>hello world!</Text></View>);
+```
 
  // later on:
  this.refs.toast.close('hello world!');
