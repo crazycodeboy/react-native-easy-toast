@@ -2,23 +2,24 @@
  * react-native-easy-toast
  * https://github.com/crazycodeboy/react-native-easy-toast
  * Email:crazycodeboy@gmail.com
- * Blog:http://www.devio.org/
+ * Blog:http://jiapenghui.com
  * @flow
  */
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {
     StyleSheet,
     View,
     Animated,
     Dimensions,
     Text,
+    ViewPropTypes as RNViewPropTypes,
 } from 'react-native'
 
 import PropTypes from 'prop-types';
-
+const ViewPropTypes = RNViewPropTypes || View.propTypes;
 export const DURATION = { 
-    LENGTH_LONG: 2000, 
     LENGTH_SHORT: 500,
     FOREVER: 0,
 };
@@ -101,15 +102,15 @@ export default class Toast extends Component {
                 pos = height - this.props.positionValue;
                 break;
         }
-        
+
         const view = this.state.isShow ?
             <View
                 style={[styles.container, { top: pos }]}
                 pointerEvents="none"
-                >
+            >
                 <Animated.View
                     style={[styles.content, { opacity: this.state.opacityValue }, this.props.style]}
-                    >
+                >
                     <Text style={this.props.textStyle}>{this.state.text}</Text>
                 </Animated.View>
             </View> : null;
@@ -122,7 +123,9 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: 0,
         right: 0,
+        elevation: 999,
         alignItems: 'center',
+        zIndex: 10000,
     },
     content: {
         backgroundColor: 'black',
@@ -135,17 +138,17 @@ const styles = StyleSheet.create({
 });
 
 Toast.propTypes = {
-    style: PropTypes.any,
+    style: ViewPropTypes.style,
     position: PropTypes.oneOf([
         'top',
         'center',
         'bottom',
     ]),
-    textStyle: PropTypes.any,
-    positionValue: PropTypes.number,
-    fadeInDuration: PropTypes.number,
-    fadeOutDuration: PropTypes.number,
-    opacity: PropTypes.number
+    textStyle: Text.propTypes.style,
+    positionValue:PropTypes.number,
+    fadeInDuration:PropTypes.number,
+    fadeOutDuration:PropTypes.number,
+    opacity:PropTypes.number
 }
 
 Toast.defaultProps = {
