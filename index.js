@@ -17,10 +17,9 @@ import {
     ViewPropTypes as RNViewPropTypes,
 } from 'react-native'
 
+import PropTypes from 'prop-types';
 const ViewPropTypes = RNViewPropTypes || View.propTypes;
- 
-export const DURATION = {
-    LENGTH_LONG: 2000,
+export const DURATION = { 
     LENGTH_SHORT: 500,
     FOREVER: 0,
 };
@@ -39,9 +38,10 @@ export default class Toast extends Component {
         }
     }
 
-    show(text, duration) {
+    show(text, duration, callback) {
         this.duration = typeof duration === 'number' ? duration : DURATION.LENGTH_SHORT;
-
+        
+        this.callback = callback;
         this.setState({
             isShow: true,
             text: text,
@@ -78,6 +78,9 @@ export default class Toast extends Component {
                     isShow: false,
                 });
                 this.isShow = false;
+                if(typeof this.callback === 'function') {
+                    this.callback();
+                }
             });
         }, delay);
     }
