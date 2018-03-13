@@ -7,7 +7,6 @@
  */
 
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {
     StyleSheet,
     View,
@@ -30,7 +29,6 @@ export default class Toast extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
             isShow: false,
             text: '',
@@ -40,7 +38,6 @@ export default class Toast extends Component {
 
     show(text, duration, callback) {
         this.duration = typeof duration === 'number' ? duration : DURATION.LENGTH_SHORT;
-        
         this.callback = callback;
         this.setState({
             isShow: true,
