@@ -64,6 +64,10 @@
 
 在需要弹出提示框时使用上面代码即可。
 
+或者像这样
+```javascript
+    this.refs.toast.show(<View><Text>hello world!</Text></View>);
+```
 
 
 ### 用例  
