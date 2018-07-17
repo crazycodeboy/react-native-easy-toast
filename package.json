@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "description": "A react native module to show toast like android, it works on iOS and Android.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,8 +29,8 @@
     "url": "https://github.com/crazycodeboy/react-native-easy-toast/issues"
   },
   "dependencies": {
-		"prop-types": "^15.6.0"
-	},
+    "prop-types": "^15.6.0"
+  },
   "peerDependencies": {
     "react-native": ">=0.20.0",
     "prop-types": "^15.5.7"
