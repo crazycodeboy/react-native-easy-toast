@@ -23,8 +23,6 @@ export const DURATION = {
     FOREVER: 0,
 };
 
-const {height, width} = Dimensions.get('window');
-
 export default class Toast extends Component {
 
     constructor(props) {
@@ -87,13 +85,16 @@ export default class Toast extends Component {
     }
 
     render() {
-        let pos = this.props.positionValue;
+        const {height} = Dimensions.get('window');
+        const {position, positionValue} = this.props;
 
-        if (this.props.position === 'center') {
+        let pos = positionValue;
+
+        if (position === 'center') {
           pos = height / 2;
         }
 
-        const cssProp = this.props.position === 'bottom' ? 'bottom': 'top';
+        const cssProp = position === 'bottom' ? 'bottom': 'top';
 
         const view = this.state.isShow ?
             <View
