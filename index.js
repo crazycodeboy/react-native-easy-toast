@@ -13,6 +13,7 @@ import {
     Animated,
     Dimensions,
     Text,
+    TouchableWithoutFeedback,
     ViewPropTypes as RNViewPropTypes,
 } from 'react-native'
 
@@ -36,9 +37,12 @@ export default class Toast extends Component {
         }
     }
 
-    show(text, duration, callback) {
+    show(text, duration, callback, onPress) {
         this.duration = typeof duration === 'number' ? duration : DURATION.LENGTH_SHORT;
         this.callback = callback;
+        console.log(typeof onPress)
+        if(typeof onPress === 'function')
+            this.onPress = onPress
         this.setState({
             isShow: true,
             text: text,
@@ -88,7 +92,7 @@ export default class Toast extends Component {
 
     render() {
         let pos;
-        switch (this.props.position) {
+        switch ('center') {
             case 'top':
                 pos = this.props.positionValue;
                 break;
@@ -101,16 +105,19 @@ export default class Toast extends Component {
         }
 
         const view = this.state.isShow ?
+        <TouchableWithoutFeedback onPress={this.onPress} >
             <View
                 style={[styles.container, { top: pos }]}
-                pointerEvents="none"
+                pointerEvents="auto"
             >
                 <Animated.View
                     style={[styles.content, { opacity: this.state.opacityValue }, this.props.style]}
                 >
                     {React.isValidElement(this.state.text) ? this.state.text : <Text style={this.props.textStyle}>{this.state.text}</Text>}
                 </Animated.View>
-            </View> : null;
+            </View> 
+        </TouchableWithoutFeedback>
+            : null;
         return view;
     }
 }
