@@ -103,7 +103,7 @@ export default class Toast extends Component {
         const view = this.state.isShow ?
             <View
                 style={[styles.container, { top: pos }]}
-                pointerEvents="none"
+                pointerEvents={this.props.pointerEvents}
             >
                 <Animated.View
                     style={[styles.content, { opacity: this.state.opacityValue }, this.props.style]}
@@ -145,7 +145,8 @@ Toast.propTypes = {
     positionValue:PropTypes.number,
     fadeInDuration:PropTypes.number,
     fadeOutDuration:PropTypes.number,
-    opacity:PropTypes.number
+    opacity:PropTypes.number,
+    pointerEvents: PropTypes.string
 }
 
 Toast.defaultProps = {
@@ -154,5 +155,6 @@ Toast.defaultProps = {
     positionValue: 120,
     fadeInDuration: 500,
     fadeOutDuration: 500,
-    opacity: 1
+    opacity: 1,
+    pointerEvents: 'none'
 }
