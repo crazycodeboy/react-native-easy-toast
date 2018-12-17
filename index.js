@@ -23,6 +23,12 @@ export const DURATION = {
     FOREVER: 0,
 };
 
+export const POSITION = {
+  TOP: 'top',
+  CENTER: 'center',
+  BOTTOM: 'bottom',
+};
+
 const {height, width} = Dimensions.get('window');
 
 export default class Toast extends Component {
