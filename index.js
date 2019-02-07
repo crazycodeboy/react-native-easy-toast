@@ -44,13 +44,14 @@ export default class Toast extends Component {
             text: text,
         });
 
-        Animated.timing(
+        this.animation = Animated.timing(
             this.state.opacityValue,
             {
                 toValue: this.props.opacity,
                 duration: this.props.fadeInDuration,
             }
-        ).start(() => {
+        )
+        this.animation.start(() => {
             this.isShow = true;
             if(duration !== DURATION.FOREVER) this.close();
         });
@@ -64,13 +65,14 @@ export default class Toast extends Component {
         if (!this.isShow && !this.state.isShow) return;
         this.timer && clearTimeout(this.timer);
         this.timer = setTimeout(() => {
-            Animated.timing(
+            this.animation = Animated.timing(
                 this.state.opacityValue,
                 {
                     toValue: 0.0,
                     duration: this.props.fadeOutDuration,
                 }
-            ).start(() => {
+            )
+            this.animation.start(() => {
                 this.setState({
                     isShow: false,
                 });
@@ -83,6 +85,7 @@ export default class Toast extends Component {
     }
 
     componentWillUnmount() {
+        this.animation && this.animation.stop()
         this.timer && clearTimeout(this.timer);
     }
 
