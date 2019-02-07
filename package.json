@@ -1,6 +1,6 @@
 {
   "name": "react-native-easy-toast",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A react native module to show toast like android, it works on iOS and Android.",
   "main": "index.js",
   "types": "index.d.ts",
