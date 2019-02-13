@@ -18,12 +18,10 @@ import {
 
 import PropTypes from 'prop-types';
 const ViewPropTypes = RNViewPropTypes || View.propTypes;
-export const DURATION = { 
+export const DURATION = {
     LENGTH_SHORT: 500,
     FOREVER: 0,
 };
-
-const {height, width} = Dimensions.get('window');
 
 export default class Toast extends Component {
 
@@ -90,22 +88,20 @@ export default class Toast extends Component {
     }
 
     render() {
-        let pos;
-        switch (this.props.position) {
-            case 'top':
-                pos = this.props.positionValue;
-                break;
-            case 'center':
-                pos = height / 2;
-                break;
-            case 'bottom':
-                pos = height - this.props.positionValue;
-                break;
+        const {height} = Dimensions.get('window');
+        const {position, positionValue} = this.props;
+
+        let pos = positionValue;
+
+        if (position === 'center') {
+          pos = height / 2;
         }
+
+        const cssProp = position === 'bottom' ? 'bottom': 'top';
 
         const view = this.state.isShow ?
             <View
-                style={[styles.container, { top: pos }]}
+                style={[styles.container, { [cssProp]: pos }]}
                 pointerEvents="none"
             >
                 <Animated.View
