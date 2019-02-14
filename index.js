@@ -18,7 +18,7 @@ import {
 
 import PropTypes from 'prop-types';
 const ViewPropTypes = RNViewPropTypes || View.propTypes;
-export const DURATION = { 
+export const DURATION = {
     LENGTH_SHORT: 500,
     FOREVER: 0,
 };
@@ -75,9 +75,11 @@ export default class Toast extends Component {
                 }
             )
             this.animation.start(() => {
-                this.setState({
-                    isShow: false,
-                });
+                if (this._isMounted) {
+                    this.setState({
+                        isShow: false,
+                    });
+                }
                 this.isShow = false;
                 if(typeof this.callback === 'function') {
                     this.callback();
