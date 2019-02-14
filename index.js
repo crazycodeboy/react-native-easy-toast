@@ -37,24 +37,26 @@ export default class Toast extends Component {
     }
 
     show(text, duration, callback) {
-        this.duration = typeof duration === 'number' ? duration : DURATION.LENGTH_SHORT;
-        this.callback = callback;
-        this.setState({
-            isShow: true,
-            text: text,
-        });
+        if (this._isMounted) {
+            this.duration = typeof duration === 'number' ? duration : DURATION.LENGTH_SHORT;
+            this.callback = callback;
+            this.setState({
+                isShow: true,
+                text: text,
+            });
 
-        this.animation = Animated.timing(
-            this.state.opacityValue,
-            {
-                toValue: this.props.opacity,
-                duration: this.props.fadeInDuration,
-            }
-        )
-        this.animation.start(() => {
-            this.isShow = true;
-            if(duration !== DURATION.FOREVER) this.close();
-        });
+            this.animation = Animated.timing(
+              this.state.opacityValue,
+              {
+                  toValue: this.props.opacity,
+                  duration: this.props.fadeInDuration,
+              }
+            )
+            this.animation.start(() => {
+                this.isShow = true;
+                if (duration !== DURATION.FOREVER) this.close();
+            });
+        }
     }
 
     close( duration ) {
@@ -84,9 +86,14 @@ export default class Toast extends Component {
         }, delay);
     }
 
+    componentDidMount() {
+        this._isMounted = true;
+    }
+
     componentWillUnmount() {
         this.animation && this.animation.stop()
         this.timer && clearTimeout(this.timer);
+        this._isMounted = false;
     }
 
     render() {
