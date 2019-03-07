@@ -13,6 +13,7 @@ import {
     Animated,
     Dimensions,
     Text,
+    Modal,
     ViewPropTypes as RNViewPropTypes,
 } from 'react-native'
 
@@ -103,17 +104,19 @@ export default class Toast extends Component {
                 break;
         }
 
-        const view = this.state.isShow ?
-            <View
-                style={[styles.container, { top: pos }]}
-                pointerEvents="none"
+        const view =
+            <Modal
+                visible={this.state.isShow}
+                transparent
             >
-                <Animated.View
-                    style={[styles.content, { opacity: this.state.opacityValue }, this.props.style]}
-                >
-                    {React.isValidElement(this.state.text) ? this.state.text : <Text style={this.props.textStyle}>{this.state.text}</Text>}
-                </Animated.View>
-            </View> : null;
+                <View pointerEvents="none" style={[styles.container, { top: pos }]}>
+                    <Animated.View
+                        style={[styles.content, { opacity: this.state.opacityValue }, this.props.style]}
+                    >
+                        {React.isValidElement(this.state.text) ? this.state.text : <Text style={this.props.textStyle}>{this.state.text}</Text>}
+                    </Animated.View>
+                </View>
+            </Modal>
         return view;
     }
 }
