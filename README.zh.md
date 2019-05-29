@@ -20,8 +20,8 @@
 
 ## 安装
 
-* 1.在终端运行 `npm i react-native-easy-toast --save`
-* 2.在要使用`Toast`的js文件中添加`import Toast, {DURATION} from 'react-native-easy-toast'`    
+1. 在终端运行 `npm i react-native-easy-toast --save`
+2. 在要使用`Toast`的js文件中添加`import Toast, {DURATION} from 'react-native-easy-toast'`    
 
 ## Demo  
 * [Examples](https://github.com/crazycodeboy/react-native-easy-toast/tree/master/examples)
