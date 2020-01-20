@@ -10,10 +10,10 @@ import React, {Component} from 'react';
 import {
     StyleSheet,
     View,
+    ViewPropTypes as RNViewPropTypes,
     Animated,
     Dimensions,
     Text,
-    ViewPropTypes as RNViewPropTypes,
 } from 'react-native'
 
 import PropTypes from 'prop-types';
