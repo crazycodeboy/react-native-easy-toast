@@ -11,10 +11,10 @@ declare module 'react-native-easy-toast' {
         style?: StyleProp<ViewStyle> | StyleProp<ViewProps>;
         textStyle?: StyleProp<TextStyle>;
         position?: "top" | "center" | "bottom";
-        positionValue: number;
-        fadeInDuration: number;
-        fadeOutDuration: number;
-        opacity: number;
+        positionValue?: number;
+        fadeInDuration?: number;
+        fadeOutDuration?: number;
+        opacity?: number;
     }
 
     export default class Toast extends Component<ToastProps> {
