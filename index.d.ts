@@ -1,24 +1,27 @@
-import { Component, ReactNode } from 'react';
-import { ViewProps, ViewStyle, TextStyle, StyleProp } from 'react-native';
+// Type definitions for react-native-easy-toast 1.2
+// Project: https://github.com/crazycodeboy/react-native-easy-toast/pulls
+// Definitions by: Deividi Cavarzan <https://github.com/cavarzan>
+// TypeScript Version: 2.8
 
-declare module 'react-native-easy-toast' {
-    export interface DURATION {
-        LENGTH_SHORT: number;
-        FOREVER: number;
-    }
+import * as React from "react";
+import { StyleProp, TextStyle, ViewProps, ViewStyle } from 'react-native';
 
-    export interface ToastProps {
-        style?: StyleProp<ViewStyle> | StyleProp<ViewProps>;
-        textStyle?: StyleProp<TextStyle>;
-        position?: "top" | "center" | "bottom";
-        positionValue?: number;
-        fadeInDuration?: number;
-        fadeOutDuration?: number;
-        opacity?: number;
-    }
+export interface DURATION {
+    LENGTH_SHORT: number;
+    FOREVER: number;
+}
 
-    export default class Toast extends Component<ToastProps> {
-        show: (text: string | ReactNode, duration?: number, callback?: () => void) => void;
-        close: (duration?: number) => void;
-    }
+export interface ToastProps {
+    style?: StyleProp<ViewStyle> | StyleProp<ViewProps>;
+    textStyle?: StyleProp<TextStyle>;
+    position?: 'top' | 'center' | 'bottom';
+    positionValue?: number;
+    fadeInDuration?: number;
+    fadeOutDuration?: number;
+    opacity?: number;
+}
+
+export default class Toast extends React.Component<ToastProps> {
+    show: (text: string | React.ReactNode, duration?: number, callback?: () => void) => void;
+    close: (duration?: number) => void;
 }
