@@ -1,11 +1,10 @@
 # react-native-easy-toast
 A react native module to show toast like android, it works on iOS and Android.
 
-[ ![release](https://img.shields.io/github/release/crazycodeboy/react-native-easy-toast.svg?maxAge=2592000?style=flat-square)](https://github.com/crazycodeboy/react-native-easy-toast/releases)
-[ ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](https://github.com/crazycodeboy/react-native-easy-toast/pulls)
+[ ![release](https://img.shields.io/github/release/cavarzan/react-native-easy-toast.svg?maxAge=2592000?style=flat-square)](https://github.com/cavarzan/react-native-easy-toast/releases)
+[ ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](https://github.com/cavarzan/react-native-easy-toast/pulls)
 [ ![NPM version](http://img.shields.io/npm/v/react-native-easy-toast.svg?style=flat)](https://www.npmjs.com/package/react-native-easy-toast)
-[![License MIT](http://img.shields.io/badge/license-MIT-orange.svg?style=flat)](https://raw.githubusercontent.com/crazycodeboy/react-native-easy-toast/master/LICENSE)
-[ ![语言 中文](https://img.shields.io/badge/语言-中文-yellow.svg)](https://github.com/crazycodeboy/react-native-easy-toast/blob/master/README.zh.md)
+[![License MIT](http://img.shields.io/badge/license-MIT-orange.svg?style=flat)](https://raw.githubusercontent.com/cavarzan/react-native-easy-toast/master/LICENSE)
 
 
 
@@ -24,9 +23,9 @@ A react native module to show toast like android, it works on iOS and Android.
 * 2.`import Toast, {DURATION} from 'react-native-easy-toast'`    
 
 ## Demo  
-* [Examples](https://github.com/crazycodeboy/react-native-easy-toast/tree/master/examples)
+* [Examples](https://github.com/cavarzan/react-native-easy-toast/tree/master/examples)
 
-![Screenshots](https://raw.githubusercontent.com/crazycodeboy/react-native-easy-toast/master/examples/Screenshots/react-native-easy-toast-screenshots.gif)
+![Screenshots](https://raw.githubusercontent.com/cavarzan/react-native-easy-toast/master/examples/Screenshots/react-native-easy-toast-screenshots.gif)
 
 ## Getting started  
 
@@ -138,11 +137,6 @@ render() {
         );
     }
 ```
-
-**More Usage:**    
-
-[GitHubPopular](https://github.com/crazycodeboy/GitHubPopular/blob/develop/js/page/SearchPage.js)
-
 
 
 ## API
