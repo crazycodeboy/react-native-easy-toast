@@ -3,7 +3,7 @@ A react native module to show toast like android, it works on iOS and Android.
 
 [ ![release](https://img.shields.io/github/release/cavarzan/react-native-easy-toast.svg?maxAge=2592000?style=flat-square)](https://github.com/cavarzan/react-native-easy-toast/releases)
 [ ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](https://github.com/cavarzan/react-native-easy-toast/pulls)
-[ ![NPM version](http://img.shields.io/npm/v/react-native-easy-toast.svg?style=flat)](https://www.npmjs.com/package/react-native-easy-toast)
+[ ![NPM version](http://img.shields.io/npm/v/react-native-easy-toast-types.svg?style=flat)](https://www.npmjs.com/package/react-native-easy-toast)
 [![License MIT](http://img.shields.io/badge/license-MIT-orange.svg?style=flat)](https://raw.githubusercontent.com/cavarzan/react-native-easy-toast/master/LICENSE)
 
 
@@ -19,7 +19,7 @@ A react native module to show toast like android, it works on iOS and Android.
 
 ## Installation
 
-* 1.Run `npm i react-native-easy-toast --save`
+* 1.Run `npm i react-native-easy-toast-types --save`
 * 2.`import Toast, {DURATION} from 'react-native-easy-toast'`    
 
 ## Demo  
