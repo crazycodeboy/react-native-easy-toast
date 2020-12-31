@@ -2,7 +2,7 @@
  * react-native-easy-toast
  * https://github.com/crazycodeboy/react-native-easy-toast
  * Email:crazycodeboy@gmail.com
- * Blog:http://jiapenghui.com
+ * Blog:https://www.devio.org/
  * @flow
  */
 
@@ -97,7 +97,7 @@ export default class Toast extends Component {
 
     render() {
         let pos;
-        switch ('center') {
+        switch (this.props.position) {
             case 'top':
                 pos = this.props.positionValue;
                 break;
@@ -120,7 +120,7 @@ export default class Toast extends Component {
                 >
                     {React.isValidElement(this.state.text) ? this.state.text : <Text style={this.props.textStyle}>{this.state.text}</Text>}
                 </Animated.View>
-            </View> 
+            </View>
         </TouchableWithoutFeedback>
             : null;
         return view;

@@ -1,3 +1,11 @@
+/**
+ * react-native-easy-toast
+ * https://github.com/crazycodeboy/react-native-easy-toast
+ * Email:crazycodeboy@gmail.com
+ * Blog:https://www.devio.org/
+ * @flow
+ */
+
 import { Component, ReactNode } from "react";
 
 interface ToastComponentProps {

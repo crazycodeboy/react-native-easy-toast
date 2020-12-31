@@ -1,4 +1,5 @@
-# [react-native-easy-toast](https://github.com/crazycodeboy/react-native-easy-toast/)
+# react-native-easy-toast
+
 一款简单易用的 Toast 组件，支持 Android&iOS。
 
 [ ![release](https://img.shields.io/github/release/crazycodeboy/react-native-easy-toast.svg?maxAge=2592000?style=flat-square)](https://github.com/crazycodeboy/react-native-easy-toast/releases)
@@ -21,106 +22,100 @@
 ## 安装
 
 * 1.在终端运行 `npm i react-native-easy-toast --save`
-* 2.在要使用`Toast`的js文件中添加`import Toast, {DURATION} from 'react-native-easy-toast'`    
+    * 或者  `yarn add react-native-easy-toast`
+* 2.在要使用`Toast`的js文件中添加`import Toast, {DURATION} from 'react-native-easy-toast'`
 
-## Demo  
+## Demo
 * [Examples](https://github.com/crazycodeboy/react-native-easy-toast/tree/master/examples)
 
 ![Screenshots](https://raw.githubusercontent.com/crazycodeboy/react-native-easy-toast/master/examples/Screenshots/react-native-easy-toast-screenshots.gif)
 
-## 如何使用？  
+## 如何使用？
 
 >第一步：
 
-在你的js文件中导入 `react-native-easy-toast`：     
+在你的js文件中导入 `react-native-easy-toast`：
 
-`import Toast, {DURATION} from 'react-native-easy-toast'`  
+`import Toast, {DURATION} from 'react-native-easy-toast'`
 
->第二步：   
+>第二步：
 
-将下面代码插入到`render()`方法中：   
+将下面代码插入到`render()`方法中：
 
 
 ```javascript
  render() {
-         return (
-             <View style={styles.container}>
-                 ...
-                 <Toast ref="toast"/>
-             </View>
-         );
+     return (
+         <View>
+             ...
+            <Toast ref={(toast) => this.toast = toast}/>
+         </View>
+     );
  }
 ```
 
->注意: 请将`<Toast ref="toast"/>` 放在最外层View的底部.
+><span style="color:red">注意: 请将`<Toast ref={(toast) => this.toast = toast}/>` 放在最外层View的底部。</span>
+
 
 >第三步：
 
-使用：  
+使用：
 
 ```javascript
- this.refs.toast.show('hello world!');
+ this.toast.show('hello world!');
 ```
 
 在需要弹出提示框时使用上面代码即可。
 
 或者像这样
+
 ```javascript
-    this.refs.toast.show(<View><Text>hello world!</Text></View>);
+this.toast.show(<View><Text>hello world!</Text></View>);
 ```
 
 
-### 用例  
-
-```javascript
-render() {
-        return (
-            <View style={styles.container}>
-                <TouchableHighlight
-                    style={{padding: 10}}
-                    onPress={()=>{
-                        this.refs.toast.show('hello world!');
-                    }}>
-                    <Text>Press me</Text>
-                </TouchableHighlight>
-                <Toast ref="toast"/>
-            </View>
-        );
-    }
-```
-
-### 自定义 Toast   
+### 用例
 
 ```javascript
 render() {
-        return (
-            <View style={styles.container}>
-                <TouchableHighlight
-                    style={{padding: 10}}
-                    onPress={()=>{
-                        this.refs.toast.show('hello world!',DURATION.LENGTH_LONG);
-                    }}>
-                    <Text>Press me</Text>
-                </TouchableHighlight>
-                <Toast
-                    ref="toast"
-                    style={{backgroundColor:'red'}}
-                    position='top'
-                    positionValue={200}
-                    fadeInDuration={750}
-                    fadeOutDuration={1000}
-                    opacity={0.8}
-                    textStyle={{color:'red'}}
-                />
-            </View>
-        );
+return (
+    <View>
+        <Button title={'Press me'} onPress={()=>{
+            this.toast.show('hello world!',2000);
+        }}/>
+        <Toast ref={(toast) => this.toast = toast}/>
+    </View>
+);
     }
 ```
 
+### 自定义 Toast
 
-**更多用例:**    
+```javascript
+render() {
+    return (
+        <View>
+            <Button title={'Press me'} onPress={()=>{
+                    this.toast.show('hello world!',2000);
+                }}/>
+            <Toast
+                ref={(toast) => this.toast = toast}
+                style={{backgroundColor:'red'}}
+                position='top'
+                positionValue={200}
+                fadeInDuration={750}
+                fadeOutDuration={1000}
+                opacity={0.8}
+                textStyle={{color:'red'}}
+            />
+        </View>
+    );
+}
+```
 
-[SearchPage.js@GitHubPopular](https://github.com/crazycodeboy/GitHubPopular/blob/develop/js/page/SearchPage.js)
+**更多用例:**
+
+[GitHubPopular](https://github.com/crazycodeboy/GitHubPopular/blob/develop/js/page/SearchPage.js)
 
 
 
@@ -140,8 +135,8 @@ textStyle  | View.propTypes.style  | true | {color:'white'}  |  自定义text的
 
 方法            | 类型     | 可选 | 描述
 ----------------- | -------- | -------- | ----------- | -----------
-show(text, duration)   | function | false | 弹出提示框,单位是毫秒
-close() |  function  | true  |  手动关闭提示框    
+show(text, duration, callback, onPress)  | function | false | 弹出提示框,单位是毫秒
+close() |  function  | true  |  手动关闭提示框
 
 
 ## 贡献
@@ -151,5 +146,5 @@ close() |  function  | true  |  手动关闭提示框
 
 ---
 
-**MIT Licensed**    
-大家可以自由复制和转载。  
+**MIT Licensed**  
+大家可以自由复制和转载。
