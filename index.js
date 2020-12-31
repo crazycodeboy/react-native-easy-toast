@@ -18,7 +18,7 @@ import {
 
 import PropTypes from 'prop-types';
 const ViewPropTypes = RNViewPropTypes || View.propTypes;
-export const DURATION = { 
+export const DURATION = {
     LENGTH_SHORT: 500,
     FOREVER: 0,
 };
@@ -49,6 +49,7 @@ export default class Toast extends Component {
             {
                 toValue: this.props.opacity,
                 duration: this.props.fadeInDuration,
+                useNativeDriver: this.props.useNativeAnimation
             }
         )
         this.animation.start(() => {
@@ -70,6 +71,7 @@ export default class Toast extends Component {
                 {
                     toValue: 0.0,
                     duration: this.props.fadeOutDuration,
+                    useNativeDriver: this.props.useNativeAnimation
                 }
             )
             this.animation.start(() => {
@@ -148,7 +150,8 @@ Toast.propTypes = {
     positionValue:PropTypes.number,
     fadeInDuration:PropTypes.number,
     fadeOutDuration:PropTypes.number,
-    opacity:PropTypes.number
+    opacity:PropTypes.number,
+    useNativeAnimation:PropTypes.bool
 }
 
 Toast.defaultProps = {
@@ -157,5 +160,6 @@ Toast.defaultProps = {
     positionValue: 120,
     fadeInDuration: 500,
     fadeOutDuration: 500,
-    opacity: 1
+    opacity: 1,
+    useNativeAnimation: false
 }
