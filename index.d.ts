@@ -7,7 +7,6 @@
  */
 
 import { Component, ReactNode } from "react";
-import { ViewStyle } from 'react-native';
 
 interface ToastComponentProps {
   position?: "bottom" | "center" | "top";
@@ -16,7 +15,6 @@ interface ToastComponentProps {
   fadeInDuration?: number;
   fadeOutDuration?: number;
   opacity?: number;
-  style? : ViewStyle
 }
 
 declare module "react-native-easy-toast" {
