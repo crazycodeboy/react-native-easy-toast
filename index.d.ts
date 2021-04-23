@@ -9,6 +9,7 @@
 import { Component, ReactNode } from "react";
 
 interface ToastComponentProps {
+  style?: {};
   position?: "bottom" | "center" | "top";
   textStyle?: {};
   positionValue?: number;
@@ -34,4 +35,3 @@ declare module "react-native-easy-toast" {
     close: (duration?: number) => void;
   }
 }
-
