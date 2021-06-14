@@ -40,7 +40,6 @@ export default class Toast extends Component {
     show(text, duration, callback, onPress) {
         this.duration = typeof duration === 'number' ? duration : DURATION.LENGTH_SHORT;
         this.callback = callback;
-        console.log(typeof onPress)
         if(typeof onPress === 'function')
             this.onPress = onPress
         this.setState({
