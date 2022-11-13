@@ -13,12 +13,11 @@ import {
     Animated,
     Dimensions,
     Text,
-    TouchableWithoutFeedback,
-    ViewPropTypes as RNViewPropTypes,
+    TouchableWithoutFeedback
 } from 'react-native'
 
 import PropTypes from 'prop-types';
-const ViewPropTypes = RNViewPropTypes || View.propTypes;
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 export const DURATION = {
     LENGTH_SHORT: 500,
     FOREVER: 0,
