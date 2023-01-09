@@ -2,7 +2,7 @@
  * react-native-easy-toast
  * https://github.com/crazycodeboy/react-native-easy-toast
  * Email:crazycodeboy@gmail.com
- * Blog:http://jiapenghui.com
+ * Blog:https://www.devio.org/
  * @flow
  */
 
@@ -13,12 +13,12 @@ import {
     Animated,
     Dimensions,
     Text,
-    ViewPropTypes as RNViewPropTypes,
+    TouchableWithoutFeedback
 } from 'react-native'
 
 import PropTypes from 'prop-types';
-const ViewPropTypes = RNViewPropTypes || View.propTypes;
-export const DURATION = { 
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
+export const DURATION = {
     LENGTH_SHORT: 500,
     FOREVER: 0,
 };
@@ -36,21 +36,26 @@ export default class Toast extends Component {
         }
     }
 
-    show(text, duration, callback) {
+    show(text, duration, callback, onPress) {
         this.duration = typeof duration === 'number' ? duration : DURATION.LENGTH_SHORT;
         this.callback = callback;
+        console.log(typeof onPress)
+        if(typeof onPress === 'function')
+            this.onPress = onPress
         this.setState({
             isShow: true,
             text: text,
         });
 
-        Animated.timing(
+        this.animation = Animated.timing(
             this.state.opacityValue,
             {
                 toValue: this.props.opacity,
                 duration: this.props.fadeInDuration,
+                useNativeDriver: this.props.useNativeAnimation
             }
-        ).start(() => {
+        )
+        this.animation.start(() => {
             this.isShow = true;
             if(duration !== DURATION.FOREVER) this.close();
         });
@@ -64,13 +69,15 @@ export default class Toast extends Component {
         if (!this.isShow && !this.state.isShow) return;
         this.timer && clearTimeout(this.timer);
         this.timer = setTimeout(() => {
-            Animated.timing(
+            this.animation = Animated.timing(
                 this.state.opacityValue,
                 {
                     toValue: 0.0,
                     duration: this.props.fadeOutDuration,
+                    useNativeDriver: this.props.useNativeAnimation
                 }
-            ).start(() => {
+            )
+            this.animation.start(() => {
                 this.setState({
                     isShow: false,
                 });
@@ -83,6 +90,7 @@ export default class Toast extends Component {
     }
 
     componentWillUnmount() {
+        this.animation && this.animation.stop()
         this.timer && clearTimeout(this.timer);
     }
 
@@ -101,6 +109,7 @@ export default class Toast extends Component {
         }
 
         const view = this.state.isShow ?
+        <TouchableWithoutFeedback onPress={this.onPress} >
             <View
                 style={[styles.container, { top: pos }]}
                 pointerEvents={this.props.pointerEvents}
@@ -110,7 +119,9 @@ export default class Toast extends Component {
                 >
                     {React.isValidElement(this.state.text) ? this.state.text : <Text style={this.props.textStyle}>{this.state.text}</Text>}
                 </Animated.View>
-            </View> : null;
+            </View>
+        </TouchableWithoutFeedback>
+            : null;
         return view;
     }
 }
@@ -146,7 +157,8 @@ Toast.propTypes = {
     fadeInDuration:PropTypes.number,
     fadeOutDuration:PropTypes.number,
     opacity:PropTypes.number,
-    pointerEvents: PropTypes.string
+    pointerEvents: PropTypes.string,
+    useNativeAnimation:PropTypes.bool
 }
 
 Toast.defaultProps = {
@@ -156,5 +168,6 @@ Toast.defaultProps = {
     fadeInDuration: 500,
     fadeOutDuration: 500,
     opacity: 1,
-    pointerEvents: 'none'
+    pointerEvents: 'none',
+    useNativeAnimation: false
 }

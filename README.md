@@ -7,9 +7,6 @@ A react native module to show toast like android, it works on iOS and Android.
 [![License MIT](http://img.shields.io/badge/license-MIT-orange.svg?style=flat)](https://raw.githubusercontent.com/crazycodeboy/react-native-easy-toast/master/LICENSE)
 [ ![语言 中文](https://img.shields.io/badge/语言-中文-yellow.svg)](https://github.com/crazycodeboy/react-native-easy-toast/blob/master/README.zh.md)
 
-
-
-
 ## Content
 
 - [Installation](#installation)
@@ -21,67 +18,70 @@ A react native module to show toast like android, it works on iOS and Android.
 ## Installation
 
 * 1.Run `npm i react-native-easy-toast --save`
-* 2.`import Toast, {DURATION} from 'react-native-easy-toast'`    
+  * or  `yarn add react-native-easy-toast`
+* 2.`import Toast, {DURATION} from 'react-native-easy-toast'`
 
-## Demo  
+## Demo
 * [Examples](https://github.com/crazycodeboy/react-native-easy-toast/tree/master/examples)
 
 ![Screenshots](https://raw.githubusercontent.com/crazycodeboy/react-native-easy-toast/master/examples/Screenshots/react-native-easy-toast-screenshots.gif)
 
-## Getting started  
+## Getting started
 
-Add `react-native-easy-toast` to your js file.   
+Add `react-native-easy-toast` to your js file.
 
-`import Toast, {DURATION} from 'react-native-easy-toast'`  
+`import Toast, {DURATION} from 'react-native-easy-toast'`
 
-Inside your component's render method, use Toast:   
+Inside your component's render method, use Toast:
 
 ```javascript
  render() {
-         return (
-             <View style={styles.container}>
-                 ...
-                 <Toast ref="toast"/>
-             </View>
-         );
+     return (
+         <View>
+             ...
+            <Toast ref={(toast) => this.toast = toast}/>
+         </View>
+     );
  }
 ```
 
->Note:  Add it in the bottom of the root view.
+><span style="color:red">Note: Be sure to add `Toast` to the bottom of the root view.</span>
 
-Then you can use it like this:   
+
+Then you can use it like this:
 
 ```javascript
- this.refs.toast.show('hello world!');
+this.toast.show('hello world!');
 ```
 
-That's it, you're ready to go!  
+That's it, you're ready to go!
 
 show a toast, and execute callback function when toast close it:
 
 ```javascript
-    this.refs.toast.show('hello world!', 500, () => {
-        // something you want to do at close
-    });
+this.toast.show('hello world!', 500, () => {
+    // something you want to do at close
+});
 ```
 
 Show a toast forever until you manually close it:
+
 ```javascript
- this.refs.toast.show('hello world!', DURATION.FOREVER);
+this.toast.show('hello world!', DURATION.FOREVER);
 ```
 
 Or pass an element:
-```javascript
-    this.refs.toast.show(<View><Text>hello world!</Text></View>);
-```
 
+```javascript
+this.toast.show(<View><Text>hello world!</Text></View>);
  // later on:
- this.refs.toast.close('hello world!');
+ this.toast.close('hello world!');
 ```
 
 Optional you can pass a delay in seconds to the close()-method:
+
 ```javascript
- this.refs.toast.close('hello world!', 500);
+ this.toast.close('hello world!', 500);
 ```
 
 Currently, the default delay for close() in FOREVER-mode is set to 250 ms (or this.props.defaultCloseDelay, which you can pass with)
@@ -92,54 +92,46 @@ Currently, the default delay for close() in FOREVER-mode is set to 250 ms (or th
 
 
 
-### Basic usage  
+### Basic usage
 
 ```javascript
 render() {
-        return (
-            <View style={styles.container}>
-                <TouchableHighlight
-                    style={{padding: 10}}
-                    onPress={()=>{
-                        this.refs.toast.show('hello world!');
-                    }}>
-                    <Text>Press me</Text>
-                </TouchableHighlight>
-                <Toast ref="toast"/>
-            </View>
-        );
+return (
+    <View>
+        <Button title={'Press me'} onPress={()=>{
+            this.toast.show('hello world!',2000);
+        }}/>
+        <Toast ref={(toast) => this.toast = toast}/>
+    </View>
+);
     }
 ```
 
-### Custom Toast   
+### Custom Toast
 
 ```javascript
 render() {
-        return (
-            <View style={styles.container}>
-                <TouchableHighlight
-                    style={{padding: 10}}
-                    onPress={()=>{
-                        this.refs.toast.show('hello world!',DURATION.LENGTH_LONG);
-                    }}>
-                    <Text>Press me</Text>
-                </TouchableHighlight>
-                <Toast
-                    ref="toast"
-                    style={{backgroundColor:'red'}}
-                    position='top'
-                    positionValue={200}
-                    fadeInDuration={750}
-                    fadeOutDuration={1000}
-                    opacity={0.8}
-                    textStyle={{color:'red'}}
-                />
-            </View>
-        );
-    }
+    return (
+        <View>
+            <Button title={'Press me'} onPress={()=>{
+                    this.toast.show('hello world!',2000);
+                }}/>
+            <Toast
+                ref={(toast) => this.toast = toast}
+                style={{backgroundColor:'red'}}
+                position='top'
+                positionValue={200}
+                fadeInDuration={750}
+                fadeOutDuration={1000}
+                opacity={0.8}
+                textStyle={{color:'red'}}
+            />
+        </View>
+    );
+}
 ```
 
-**More Usage:**    
+**More Usage:**
 
 [GitHubPopular](https://github.com/crazycodeboy/GitHubPopular/blob/develop/js/page/SearchPage.js)
 
@@ -162,8 +154,8 @@ textStyle  | View.propTypes.style  | true | {color:'white'}  |   Custom style te
 
 Method   |  Type     | Optional | Description
 ----------------- | -------- | -------- | -----------
-show(text, duration, callback)   | function | false | show a toast,unit is millisecond，and do callback
-close()  |   function  |  -   |   start the close timer    
+show(text, duration, callback, onPress)   | function | false | show a toast,unit is millisecond，and do callback
+close()  |   function  |  -   |   start the close timer
 
 
 ## Contribution
