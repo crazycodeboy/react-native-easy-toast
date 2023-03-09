@@ -10,8 +10,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "react": "16.13.1",
-    "react-native": "0.63.4",
+    "react": "16.14.0",
+    "react-native": "0.71.1",
     "react-native-easy-toast": "^1.2.0"
   },
   "devDependencies": {
