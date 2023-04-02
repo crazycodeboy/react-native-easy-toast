@@ -117,7 +117,7 @@ export default class Toast extends Component {
                 <Animated.View
                     style={[styles.content, { opacity: this.state.opacityValue }, this.props.style]}
                 >
-                    {React.isValidElement(this.state.text) ? this.state.text : <Text style={this.props.textStyle}>{this.state.text}</Text>}
+                    {React.isValidElement(this.state.text) ? this.state.text : <Text numberOfLines={this.props.numberOfLines} style={this.props.textStyle}>{this.state.text}</Text>}
                 </Animated.View>
             </View>
         </TouchableWithoutFeedback>
@@ -152,6 +152,7 @@ Toast.propTypes = {
         'center',
         'bottom',
     ]),
+    numberOfLines: PropTypes.number,
     textStyle: Text.propTypes.style,
     positionValue:PropTypes.number,
     fadeInDuration:PropTypes.number,
@@ -164,6 +165,7 @@ Toast.propTypes = {
 Toast.defaultProps = {
     position: 'bottom',
     textStyle: styles.text,
+    numberOfLines: 1,
     positionValue: 120,
     fadeInDuration: 500,
     fadeOutDuration: 500,
